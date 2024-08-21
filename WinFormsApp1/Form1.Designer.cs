@@ -37,13 +37,16 @@
             OECount = new Label();
             CECount = new Label();
             Record = new Button();
-            Save = new Button();
             DISCLAIMER = new Label();
             Author = new Label();
-            Reset = new Button();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             toolStripSeparator1 = new ToolStripSeparator();
+            resetAllToolStripMenuItem = new ToolStripMenuItem();
+            resetTimeToolStripMenuItem = new ToolStripMenuItem();
+            saveToolStripMenuItem = new ToolStripMenuItem();
+            saveToExcelToolStripMenuItem = new ToolStripMenuItem();
+            saveToTXTToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -133,7 +136,7 @@
             // Record
             // 
             Record.Font = new Font("Segoe UI", 16F);
-            Record.Location = new Point(547, 12);
+            Record.Location = new Point(545, 68);
             Record.Name = "Record";
             Record.Size = new Size(230, 131);
             Record.TabIndex = 8;
@@ -141,22 +144,11 @@
             Record.UseVisualStyleBackColor = true;
             Record.Click += recordState;
             // 
-            // Save
-            // 
-            Save.Font = new Font("Segoe UI", 18F);
-            Save.Location = new Point(545, 183);
-            Save.Name = "Save";
-            Save.Size = new Size(230, 46);
-            Save.TabIndex = 9;
-            Save.Text = "Save To Excel";
-            Save.UseVisualStyleBackColor = true;
-            Save.Click += saveToExcel;
-            // 
             // DISCLAIMER
             // 
             DISCLAIMER.AutoSize = true;
             DISCLAIMER.Font = new Font("Segoe UI", 8F);
-            DISCLAIMER.Location = new Point(298, 12);
+            DISCLAIMER.Location = new Point(532, 40);
             DISCLAIMER.Name = "DISCLAIMER";
             DISCLAIMER.Size = new Size(243, 13);
             DISCLAIMER.TabIndex = 10;
@@ -174,19 +166,9 @@
             Author.TabIndex = 11;
             Author.Text = "Software by Sahil Talwar 2024";
             // 
-            // Reset
-            // 
-            Reset.Location = new Point(628, 149);
-            Reset.Name = "Reset";
-            Reset.Size = new Size(75, 23);
-            Reset.TabIndex = 12;
-            Reset.Text = "Reset Time";
-            Reset.UseVisualStyleBackColor = true;
-            Reset.Click += ResetTime;
-            // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, resetAllToolStripMenuItem, resetTimeToolStripMenuItem, saveToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -206,15 +188,48 @@
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(57, 6);
             // 
+            // resetAllToolStripMenuItem
+            // 
+            resetAllToolStripMenuItem.Name = "resetAllToolStripMenuItem";
+            resetAllToolStripMenuItem.Size = new Size(64, 20);
+            resetAllToolStripMenuItem.Text = "Reset All";
+            resetAllToolStripMenuItem.Click += resetAll;
+            // 
+            // resetTimeToolStripMenuItem
+            // 
+            resetTimeToolStripMenuItem.Name = "resetTimeToolStripMenuItem";
+            resetTimeToolStripMenuItem.Size = new Size(76, 20);
+            resetTimeToolStripMenuItem.Text = "Reset Time";
+            resetTimeToolStripMenuItem.Click += ResetTime;
+            // 
+            // saveToolStripMenuItem
+            // 
+            saveToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { saveToExcelToolStripMenuItem, saveToTXTToolStripMenuItem });
+            saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            saveToolStripMenuItem.Size = new Size(43, 20);
+            saveToolStripMenuItem.Text = "Save";
+            // 
+            // saveToExcelToolStripMenuItem
+            // 
+            saveToExcelToolStripMenuItem.Name = "saveToExcelToolStripMenuItem";
+            saveToExcelToolStripMenuItem.Size = new Size(180, 22);
+            saveToExcelToolStripMenuItem.Text = "Save to Excel";
+            saveToExcelToolStripMenuItem.Click += saveToExcel;
+            // 
+            // saveToTXTToolStripMenuItem
+            // 
+            saveToTXTToolStripMenuItem.Name = "saveToTXTToolStripMenuItem";
+            saveToTXTToolStripMenuItem.Size = new Size(180, 22);
+            saveToTXTToolStripMenuItem.Text = "Save to .TXT";
+            saveToTXTToolStripMenuItem.Click += savetoText;
+            // 
             // ControlWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 253);
-            Controls.Add(Reset);
             Controls.Add(Author);
             Controls.Add(DISCLAIMER);
-            Controls.Add(Save);
             Controls.Add(Record);
             Controls.Add(CECount);
             Controls.Add(OECount);
@@ -246,12 +261,15 @@
         private Label OECount;
         private Label CECount;
         private Button Record;
-        private Button Save;
         private Label DISCLAIMER;
         private Label Author;
-        private Button Reset;
         private MenuStrip menuStrip1;
         private ToolStripMenuItem fileToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator1;
+        private ToolStripMenuItem resetAllToolStripMenuItem;
+        private ToolStripMenuItem resetTimeToolStripMenuItem;
+        private ToolStripMenuItem saveToolStripMenuItem;
+        private ToolStripMenuItem saveToExcelToolStripMenuItem;
+        private ToolStripMenuItem saveToTXTToolStripMenuItem;
     }
 }

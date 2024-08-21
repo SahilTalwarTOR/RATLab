@@ -39,7 +39,7 @@ namespace WinFormsApp1
             i++;
             OECount.Text = i.ToString();
             DateTime savedNow = DateTime.Now;
-            historyArr.Push("+ Open Entry from " + oldI + " to " + i.ToString()  + " at " + savedNow);
+            historyArr.Push("+ Open Entry from " + oldI + " to " + i.ToString() + " at " + savedNow);
 
         }
 
@@ -149,7 +149,19 @@ namespace WinFormsApp1
             history.Show();
         }
 
+        private void resetAll(object sender, EventArgs e)
+        {
+            historyArr.Push("- Reset All");
+            i = 0;
+            n = 0;
+            OECount.Text = i.ToString();
+            CECount.Text = i.ToString();
+            ResetTime(sender, e);
+        }
 
-    
+        private void savetoText(object sender, EventArgs e)
+        {
+
+        }
     }
 }
