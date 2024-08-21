@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.3" />
     <PackageReference Include="Microsoft.Office.Interop.Excel" Version="15.0.4795.1001" />
   </ItemGroup>
 

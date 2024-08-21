@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Media;
 using Microsoft.Office.Interop.Excel;
 using System.Collections;
+using ClosedXML;
+using System.Xml.XPath;
 //Testing Version Control, Sahil Talwar 2024
 namespace WinFormsApp1
 {
@@ -115,7 +117,27 @@ namespace WinFormsApp1
 
         private void saveToExcel(object sender, EventArgs e)
         {
-            return;
+            using var newWorkbook = new ClosedXML.Excel.XLWorkbook();
+            var worksheet = newWorkbook.AddWorksheet("Rat Report");
+            string filePath = Environment.ExpandEnvironmentVariables(@"%userprofile%\downloads\");
+            worksheet.Cell("A1").Value = "Video Name";
+            worksheet.Cell("B1").Value = "#Entered open arm";
+            worksheet.Cell("C1").Value = "#Entered closed arm";
+            worksheet.Cell("D1").Value = "Time in open arm";
+
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.InitialDirectory = filePath;
+            saveDialog.Filter = "Excel Files|*.xlsx;";
+            saveDialog.FilterIndex = 2;
+            saveDialog.RestoreDirectory = true;
+            System.Windows.Forms.DialogResult result = saveDialog.ShowDialog();
+            if(result == DialogResult.OK)
+            {
+                Console.WriteLine("WROTE TO FILE");
+                MessageBox.Show("Saving as " + filePath + saveDialog.FileName);
+                newWorkbook.SaveAs(filePath + Path.GetFileName(saveDialog.FileName));
+            }
+
         }
 
         private void DISCLAIMER_Click(object sender, EventArgs e)
