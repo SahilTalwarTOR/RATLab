@@ -47,6 +47,11 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             saveToExcelToolStripMenuItem = new ToolStripMenuItem();
             saveToTXTToolStripMenuItem = new ToolStripMenuItem();
+            insertBaselineToolStripMenuItem = new ToolStripMenuItem();
+            LogButton = new Button();
+            titleBox = new TextBox();
+            videoTitle = new TextBox();
+            setClosedOpenTo0ToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -136,9 +141,9 @@
             // Record
             // 
             Record.Font = new Font("Segoe UI", 16F);
-            Record.Location = new Point(545, 68);
+            Record.Location = new Point(433, 68);
             Record.Name = "Record";
-            Record.Size = new Size(230, 131);
+            Record.Size = new Size(342, 131);
             Record.TabIndex = 8;
             Record.Text = "Start Recording Time In Open";
             Record.UseVisualStyleBackColor = true;
@@ -148,7 +153,7 @@
             // 
             DISCLAIMER.AutoSize = true;
             DISCLAIMER.Font = new Font("Segoe UI", 8F);
-            DISCLAIMER.Location = new Point(532, 40);
+            DISCLAIMER.Location = new Point(480, 52);
             DISCLAIMER.Name = "DISCLAIMER";
             DISCLAIMER.Size = new Size(243, 13);
             DISCLAIMER.TabIndex = 10;
@@ -168,7 +173,7 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, resetAllToolStripMenuItem, resetTimeToolStripMenuItem, saveToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, resetAllToolStripMenuItem, resetTimeToolStripMenuItem, saveToolStripMenuItem, insertBaselineToolStripMenuItem, setClosedOpenTo0ToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(800, 24);
@@ -212,22 +217,58 @@
             // saveToExcelToolStripMenuItem
             // 
             saveToExcelToolStripMenuItem.Name = "saveToExcelToolStripMenuItem";
-            saveToExcelToolStripMenuItem.Size = new Size(180, 22);
+            saveToExcelToolStripMenuItem.Size = new Size(142, 22);
             saveToExcelToolStripMenuItem.Text = "Save to Excel";
             saveToExcelToolStripMenuItem.Click += saveToExcel;
             // 
             // saveToTXTToolStripMenuItem
             // 
             saveToTXTToolStripMenuItem.Name = "saveToTXTToolStripMenuItem";
-            saveToTXTToolStripMenuItem.Size = new Size(180, 22);
+            saveToTXTToolStripMenuItem.Size = new Size(142, 22);
             saveToTXTToolStripMenuItem.Text = "Save to .TXT";
             saveToTXTToolStripMenuItem.Click += savetoText;
+            // 
+            // insertBaselineToolStripMenuItem
+            // 
+            insertBaselineToolStripMenuItem.Name = "insertBaselineToolStripMenuItem";
+            insertBaselineToolStripMenuItem.Size = new Size(12, 20);
+            // 
+            // LogButton
+            // 
+            LogButton.Location = new Point(700, 205);
+            LogButton.Name = "LogButton";
+            LogButton.Size = new Size(75, 23);
+            LogButton.TabIndex = 14;
+            LogButton.Text = "Log Data";
+            LogButton.UseVisualStyleBackColor = true;
+            LogButton.Click += logToArray;
+            // 
+            // titleBox
+            // 
+            titleBox.Location = new Point(545, 205);
+            titleBox.Name = "titleBox";
+            titleBox.Size = new Size(149, 23);
+            titleBox.TabIndex = 15;
+            titleBox.Text = "Folder/Rat Name";
+            titleBox.TextChanged += textBox1_TextChanged;
+            // 
+            // videoTitle
+            // 
+            videoTitle.Location = new Point(433, 205);
+            videoTitle.Name = "videoTitle";
+            videoTitle.Size = new Size(106, 23);
+            videoTitle.TabIndex = 16;
+            videoTitle.Text = "Video #";
+            videoTitle.TextChanged += textBox1_TextChanged_1;
             // 
             // ControlWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 253);
+            Controls.Add(videoTitle);
+            Controls.Add(titleBox);
+            Controls.Add(LogButton);
             Controls.Add(Author);
             Controls.Add(DISCLAIMER);
             Controls.Add(Record);
@@ -240,6 +281,7 @@
             Controls.Add(decrOEntries);
             Controls.Add(IncrOEntries);
             Controls.Add(menuStrip1);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             MainMenuStrip = menuStrip1;
             Name = "ControlWindow";
             Text = "RATLab";
@@ -271,5 +313,10 @@
         private ToolStripMenuItem saveToolStripMenuItem;
         private ToolStripMenuItem saveToExcelToolStripMenuItem;
         private ToolStripMenuItem saveToTXTToolStripMenuItem;
+        private Button LogButton;
+        private TextBox titleBox;
+        private TextBox videoTitle;
+        private ToolStripMenuItem insertBaselineToolStripMenuItem;
+        private ToolStripMenuItem setClosedOpenTo0ToolStripMenuItem;
     }
 }
